@@ -7,7 +7,7 @@ interface CalculatorProps {
 }
 
 const Calculator: React.FC<CalculatorProps> = ({ calculate, setCalculate }) => {
-  const buttons = [
+  const buttons: string[] = [
     "7",
     "8",
     "9",
@@ -21,7 +21,6 @@ const Calculator: React.FC<CalculatorProps> = ({ calculate, setCalculate }) => {
     "3",
     "-",
     "0",
-    ".",
     "=",
     "+",
     "C",
@@ -43,14 +42,16 @@ const Calculator: React.FC<CalculatorProps> = ({ calculate, setCalculate }) => {
   };
 
   return (
-    <div>
-      <div>
-        {buttons.map((btn) => (
-          <button key={btn} onClick={() => handleButton(btn)}>
-            {btn}
-          </button>
-        ))}
-      </div>
+    <div className="calculator">
+      {buttons.map((btn) => (
+        <div className="button">
+          <div key={btn}>
+            <button className="btn" onClick={() => handleButton(btn)}>
+              {btn}
+            </button>
+          </div>
+        </div>
+      ))}
     </div>
   );
 };
