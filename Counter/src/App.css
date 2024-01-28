@@ -1,0 +1,29 @@
+.counter-div {
+  display: flex;
+  align-items: center;
+  background-color: aquamarine;
+  flex-direction: column;
+  padding: 10px;
+  margin: 0 auto;
+  max-width: 50%;
+}
+.counter-div h1 {
+  font-size: 50px;
+}
+
+.counter-btn {
+  display: flex;
+  flex-direction: row;
+}
+
+.counter-btn button {
+  padding: 25px;
+  border-radius: 10px;
+  border: none;
+  background-color: black;
+  color: white;
+  margin-right: 10px;
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 20px;
+}
