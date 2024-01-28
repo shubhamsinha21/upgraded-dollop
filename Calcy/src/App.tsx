@@ -1,11 +1,12 @@
 import React from "react";
-import Header from "./components/Header.js";
-import "./App.css";
+import Heading from "./components/Heading.js";
+import Calculator from "./components/Calculator.js";
 
 function App() {
   return (
-    <div className="app">
-      <Header title="Hey, I'm Calcy 🙂" />
+    <div>
+      <Heading title="Hey, I'm Calcy.." />;
+      <Calculator />
     </div>
   );
 }
