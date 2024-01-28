@@ -1,13 +1,9 @@
 import React from "react";
 
-interface HeadingProps {
-  title: string;
-}
-
-const Heading: React.FC<HeadingProps> = ({ title }) => {
+const Heading: React.FC = () => {
   return (
-    <div className="heading">
-      <h1>{title}</h1>
+    <div>
+      <h1>Hey,I'm Calcy..🙂</h1>
     </div>
   );
 };
