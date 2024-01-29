@@ -1,19 +1,13 @@
 import React, { useState } from "react";
 
 type CounterProps = {
-  initialCount: number;
   increment: string;
   decrement: string;
   reset: string;
 };
 
-const Counter: React.FC<CounterProps> = ({
-  initialCount = 0,
-  decrement,
-  increment,
-  reset,
-}) => {
-  const [count, setCount] = useState<number>(initialCount);
+const Counter: React.FC<CounterProps> = ({ decrement, increment, reset }) => {
+  const [count, setCount] = useState<number>(0);
   const handlePlus = () => {
     {
       count === 100 ? alert("Cant exceed !") : setCount(count + 1);

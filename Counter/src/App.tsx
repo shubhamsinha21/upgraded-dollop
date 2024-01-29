@@ -5,12 +5,7 @@ import "./App.css";
 export default function App() {
   return (
     <div>
-      <Counter
-        initialCount={5}
-        increment="Plus"
-        decrement="Minus"
-        reset="Reset"
-      />
+      <Counter increment="Plus" decrement="Minus" reset="Reset" />
     </div>
   );
 }
