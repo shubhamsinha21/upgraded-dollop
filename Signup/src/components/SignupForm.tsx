@@ -4,8 +4,8 @@ import { useNavigate } from "react-router-dom";
 type SignupFormState = {
   username: string;
   email: string;
-  password: string | number;
-  confirmPassword: string | number;
+  password: string;
+  confirmPassword: string;
 };
 
 const SignupForm: React.FC = () => {
@@ -16,6 +16,10 @@ const SignupForm: React.FC = () => {
     password: "",
     confirmPassword: "",
   });
+  //suggestions
+  const [suggestions, setSuggestions] = useState<string[]>([]);
+  // password strength
+  const [strength, setStrength] = useState<string>("");
 
   // errors
   const [errors, setErrors] = useState<string[]>([]);
@@ -26,6 +30,37 @@ const SignupForm: React.FC = () => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
     setErrors([]);
+  };
+
+  const validatePassword = () => {
+    let newSuggestions = [];
+    if (formData.password.length < 8) {
+      newSuggestions.push("Password should be atlest 8 characters");
+    }
+    if (!/\d/.test(formData.password)) {
+      newSuggestions.push("Password must contain atleast one number");
+    }
+    if (!/[A-Z]/.test(formData.password) || !/[a-z]/.test(formData.password)) {
+      newSuggestions.push("Include both uppercase and lowercase letters");
+    }
+    if (!/[^A-Za-z0-9]/.test(formData.password)) {
+      newSuggestions.push("Include atleast one special characters");
+    }
+
+    setSuggestions(newSuggestions);
+
+    // password strength
+    if (newSuggestions.length === 0) {
+      setStrength("Very Strong");
+    } else if (newSuggestions.length <= 1) {
+      setStrength("Strong");
+    } else if (newSuggestions.length <= 3) {
+      setStrength("Moderate");
+    } else if (newSuggestions.length <= 5) {
+      setStrength("Weak");
+    } else {
+      setStrength("Too Weak");
+    }
   };
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -43,8 +78,6 @@ const SignupForm: React.FC = () => {
 
     if (!formData.password) {
       validateErrors.push("Password is required");
-    } else if (formData.password.toString().length < 8) {
-      validateErrors.push("Password must be at least 8 characters in length");
     }
 
     if (formData.password !== formData.confirmPassword) {
@@ -95,7 +128,10 @@ const SignupForm: React.FC = () => {
             type="password"
             name="password"
             value={formData.password}
-            onChange={handleChange}
+            onChange={(e) => {
+              handleChange(e);
+              validatePassword();
+            }}
             required
           />
         </div>
@@ -103,6 +139,15 @@ const SignupForm: React.FC = () => {
         {errors.includes(
           "Password must be at least 8 characters in length"
         ) && <p>Password must be at least 8 characters in length</p>}
+        <p>
+          {formData.password
+            ? suggestions.map((suggestions, index) => (
+                <p key={index}>
+                  {index + 1}.{suggestions}
+                </p>
+              ))
+            : null}
+        </p>
 
         <div className="form-div">
           <label>ConfirmPassword:</label>
