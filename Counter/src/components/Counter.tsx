@@ -25,6 +25,7 @@ const Counter: React.FC<CounterProps> = ({ decrement, increment, reset }) => {
   };
   return (
     <div className="counter-div">
+      <h1>Counter</h1>
       <h1>{count}</h1>
       <div className="counter-btn">
         <button onClick={handleMinus}>{decrement}</button>

@@ -4,14 +4,16 @@
   background-color: aquamarine;
   flex-direction: column;
   padding: 10px;
-  margin: 0 auto;
+  margin: 200px auto;
   max-width: 50%;
+  height: 500px;
 }
 .counter-div h1 {
   font-size: 50px;
 }
 
 .counter-btn {
+  margin-top: 100px;
   display: flex;
   flex-direction: row;
 }

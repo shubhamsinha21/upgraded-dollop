@@ -9,10 +9,9 @@ body {
   background-color: yellow;
   width: 600px;
   height: 600px;
-  margin: 0 auto;
+  margin: 150px auto;
   align-items: center;
   justify-content: space-evenly;
-  margin-top: 20px;
   box-shadow: 10px 10px 8px 8px rgba(113, 109, 109, 0.884);
   border-radius: 20px;
 }
