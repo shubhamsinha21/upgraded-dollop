@@ -61,10 +61,11 @@ const SignupForm: React.FC = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <div>
-        <label>
-          Username:
+    <form className="signupform">
+      <h1>Signup Form</h1>
+      <div className="signup-form-container">
+        <div className="form-div">
+          <label>Username:</label>
           <input
             type="text"
             name="username"
@@ -72,13 +73,11 @@ const SignupForm: React.FC = () => {
             onChange={handleChange}
             required
           />
-        </label>
+        </div>
         {errors.includes("Username is required") && <p>Username is required</p>}
-      </div>
 
-      <div>
-        <label>
-          Email:
+        <div className="form-div">
+          <label>Email:</label>
           <input
             type="email"
             name="email"
@@ -86,14 +85,12 @@ const SignupForm: React.FC = () => {
             onChange={handleChange}
             required
           />
-        </label>
+        </div>
         {errors.includes("Email is required") && <p>Email is required</p>}
         {errors.includes("Invalid email format") && <p>Invalid email format</p>}
-      </div>
 
-      <div>
-        <label>
-          Password:
+        <div className="form-div">
+          <label>Password:</label>
           <input
             type="password"
             name="password"
@@ -101,19 +98,14 @@ const SignupForm: React.FC = () => {
             onChange={handleChange}
             required
           />
-        </label>
+        </div>
         {errors.includes("Password is required") && <p>Password is required</p>}
         {errors.includes(
           "Password must be at least 8 characters in length"
         ) && <p>Password must be at least 8 characters in length</p>}
-        {errors.includes(
-          "Password must be at least 8 characters in length"
-        ) && <p>Password must be at least 8 characters in length</p>}
-      </div>
 
-      <div>
-        <label>
-          ConfirmPassword:
+        <div className="form-div">
+          <label>ConfirmPassword:</label>
           <input
             type="password"
             name="confirmPassword"
@@ -121,15 +113,23 @@ const SignupForm: React.FC = () => {
             onChange={handleChange}
             required
           />
-        </label>
+        </div>
         {errors.includes("Passwords do not match") && (
           <p>Passwords do not match</p>
         )}
       </div>
-
-      <button onClick={handleSubmit} type="submit">
-        Sign Up
-      </button>
+      <div className="buttons">
+        <button onClick={handleSubmit} type="submit" className="btn">
+          Signup
+        </button>
+        <button
+          onClick={() => navigate("/login")}
+          type="submit"
+          className="btn"
+        >
+          Login
+        </button>
+      </div>
     </form>
   );
 };
