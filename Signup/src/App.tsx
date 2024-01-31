@@ -1,8 +1,8 @@
 import "./App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Home from "./components/Home.tsx";
-import SignupForm from "./components/SignupForm.tsx";
-import LoginForm from "./components/LoginForm.tsx";
+import Home from "./components/Home";
+import SignupForm from "./components/SignupForm";
+import LoginForm from "./components/LoginForm";
 
 function App() {
   return (
